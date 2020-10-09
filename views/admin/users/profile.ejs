@@ -1,0 +1,23 @@
+<%- include ('../../partials/header.ejs');%>
+<%- include ('../../partials/bobNavbar.ejs');%>
+<body>
+        <div class="perf-box">
+            <div  class="perf-header">
+                <img src="/img/funny-cat.jpg" alt="">
+                <h5>@<%= userId.nick %></h5>
+            </div>
+            <form action="/bob/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <button type="submit" value="upload">enviar</button>
+            </form>
+            <div class="perf-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Nome: <%= userId.nick %></li>
+                    <li class="list-group-item">Email: <%= userId.email %></li>
+                    <li class="list-group-item">Patente: <%= userId.patents %></li>
+                  </ul>
+            </div>
+
+        </div>
+</body>
+<%- include ('../../partials/footer.ejs');%>

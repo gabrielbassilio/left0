@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/brands.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/solid.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Admin painel</title>
+</head>
+<body>
+<%- include ('../partials/bobNavbar.ejs'); %>
+<div class="container">
+    <div class="mx-auto mt-4 d-flex flex-row justify-content-between">   
+        <h1>Olá,<%= userId.nick %>!!</h1>
+        <a href="bob/category/new" class="btn btn-primary mt-3" data-toggle="tooltip" data-placement="top" title="Criar nova Categoria">
+            <i class="fas fa-plus cor-white"></i>
+        </a>
+    </div>
+<div class="mt-3">
+    <hr>
+    <h2 style="text-align: center;">Categorias</h2>
+    <table class="table table-bordered mt-4">
+        
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>body</th>
+                <th>Numero de topicos</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% categories.forEach(category=>{ %>
+                <tr>
+                    <th><%= category.id %></th>
+                    <th><%= category.title %></th>
+                    <th><%= category.body %></th>
+                    <th><%= category.subs %></th>
+                    <th>
+                        <a href="bob/category/edit/<%= category.id %>" class="btn btn-warning">Editar <i class="fas fa-pencil-alt"></i></a>
+                        <form method="POST" action="/bob/category/delete" style="display: inline;" onsubmit="deleteConf(event,this)">
+                            <input type="hidden" name="id" value="<%= category.id %>">
+                            <button class="btn btn-danger">Deletar <i class="fas fa-trash"></i></button>
+                        </form>
+                    </th>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+    
+</div>
+
+</body>
+<%- include ('../partials/footer.ejs'); %>
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+function deleteConf(event, form){
+        event.preventDefault();
+        var desision = confirm("Você quer deletar esta categoria?");
+        if(desision){
+            form.submit();
+        }
+    }
+</script>
+</html>

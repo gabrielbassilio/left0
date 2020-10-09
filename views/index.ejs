@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="fontawesome/css/css/brands.css">
+    <link rel="stylesheet" href="fontawesome/css/css/solid.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Russo+One&display=swap" rel="stylesheet"> 
+    <title>Kommunity Space</title>
+</head>
+<body>
+<%- include ('partials/homebar.ejs'); %>
+<!-- Modal -->
+<div class="modal fade font-bebas" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/user/authenticate" method="POST">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Endereço de email</label>
+            <input type="email" name="nameLogin" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Senha</label>
+            <input type="password" name="passwordLogin" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<div class="blue-box">
+  <div class="flex">
+    <div class="blue-header">
+      <img src="/img/logo-w-1.svg" alt="" srcset="">
+      <h3 class="color-w">Wlcome to the party</h3>
+    </div>
+    <div class="blue-form">
+      <div class="blue-form-body">
+        <h3 class="mt-3 font-bebas">Cadastrar-se</h3>
+        <form action="/user/create" method="POST">
+            <div class="form-row mt-3">
+              <div class="col">
+                <input type="text" name="name" class="form-control" placeholder="Nome">
+              </div>
+              <div class="col">
+                <input type="text" name="last" class="form-control" placeholder="Sobrenome">
+              </div>
+            </div>
+            <div class="form-group mt-3">
+            <div class="form-group mt-3">
+              <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
+            </div>
+            <div class="form-group">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                Sua senha deve ter entre 8 e 20 caracteres.
+              </small>
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+            </div>
+            <div>
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                Data de Nacimento
+              </small>
+                <input class="form-control" type="date" name="date" id="">
+            </div>
+            <div class="">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                Gênero
+              </small>
+              <div class="form-group">
+                <select class="form-control" name="genre" id="exampleFormControlSelect1">
+                  <option value="female">Feminino</option>
+                  <option value="male">Masculino</option>
+                  <option value="x">Outro</option>
+                  <option selected value="0">Selecione clickando aqui.</option>
+                </select>
+              </div>
+            </div>
+            </div>
+            <div class="select-check">
+              <div class="form-group custom-control custom-checkbox">
+                <input type="checkbox" name="terms" class="custom-control-input" id="customCheck1" value="true">
+                <label class="custom-control-label" for="customCheck1">Concordo com os termos.</label>
+              </div>
+            <button type="submit" class="btn btn-primary">Criar conta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="blue-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ffff" fill-opacity="2" d="M0,128L34.3,154.7C68.6,181,137,235,206,234.7C274.3,235,343,181,411,176C480,171,549,213,617,229.3C685.7,245,754,235,823,192C891.4,149,960,75,1029,74.7C1097.1,75,1166,149,1234,181.3C1302.9,213,1371,203,1406,197.3L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+      </path>
+    </svg>
+    <div class="blue-wave-body"></div>
+  </div>
+</div>
+<div class="main-box" id="about">
+<div class="flex">
+  <div class="main-img">
+    <img src="/img/space.svg" alt="" srcset="">
+  </div>
+  <div class="main-text">
+    <h2>Kommunity Space</h2>
+    <div class="bar-text"></div>
+    <p>
+      Phasellus porttitor sem sed tortor posuere tempor. Praesent ultricies lobortis mi in eleifend. Integer eget urna eget diam laoreet faucibus. Morbi venenatis lectus ex, nec convallis est ultricies quis. Cras consectetur sagittis consectetur. Ut eget est ultricies, placerat leo non, sodales erat. Duis at enim sem. Nullam mollis purus lectus, sed vestibulum ipsum feugiat euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt mauris nibh, sed maximus metus malesuada ut. Curabitur luctus accumsan ipsum nec tempor. Curabitur eget nibh a lorem vulputate tincidunt. Maecenas suscipit quam a leo ornare tempus. Etiam iaculis odio vitae lacus cursus feugiat. 
+    </p>
+  </div>
+</div>
+
+</div>
+<div class="black-wave">
+  <svg id="b-wave-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#212121" fill-opacity="1" d="M0,0L48,37.3C96,75,192,149,288,149.3C384,149,480,75,576,85.3C672,96,768,192,864,192C960,192,1056,96,1152,58.7C1248,21,1344,43,1392,53.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  <div class="black-box">
+    <img src="/public/img/backart2.svg" alt="" srcset="">
+  </div>
+  <svg id="b-wave-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#212121" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,106.7C672,64,768,32,864,37.3C960,43,1056,85,1152,85.3C1248,85,1344,43,1392,21.3L1440,0L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+  <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000" fill-opacity="1" d="M0,128L48,112C96,96,192,64,288,90.7C384,117,480,203,576,229.3C672,256,768,224,864,208C960,192,1056,192,1152,192C1248,192,1344,192,1392,192L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>-->
+</div>
+<div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f3f4f5" fill-opacity="1" d="M0,224L48,224C96,224,192,224,288,192C384,160,480,96,576,69.3C672,43,768,53,864,90.7C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  <div class="footer font-bebas">
+    <h5>Kommunity Space 2020</h5>
+  </div>
+</div>
+</body>
+<%- include ('partials/footer.ejs'); %>
+</html>

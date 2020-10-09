@@ -1,0 +1,68 @@
+<%- include ('../../partials/header.ejs');%>
+<%- include ('../../partials/bobNavbar.ejs');%>
+<body>
+    <div class="container">
+        <div class="mt-4">
+            <h2>Usuários</h2></br>
+            <a class="btn btn-primary" href="/bob/users/create">Criar novo</a>
+        </div>
+        <table class="table table-bordred mt-4">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>Patente</th>
+                    <th>Açãos</th>
+                    <th>Ativos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user=>{%>
+                    <tr>
+                        <th><%= user.id %></th>
+                        <th>@<%= user.name %></th>
+                        <th><%= user.email %></th>
+                        <th><%= user.patents %></th>
+                        <th>
+                            <div class="action-box-i2">
+                                <form action="" method="post">
+                                    <button class="btn" id="i1"><i class="far fa-edit"></i></button>
+                                </form>
+                                <form action="" method="post">
+                                    <button class="btn" id="i2"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </th>
+                        <th>
+                            <% if (user.check == true){%>
+                                <div>
+                                    <form action="/bob/user/acesses" method="post">
+                                        <input type="hidden" name="id" value="<%= user.id %>">
+                                        <input type="hidden" name="check" value="<%= user.check %>">
+                                        <button class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Usuario com acesso"><i class="fas fa-circle"></i></button>
+                                    </form>
+                                </div>
+                            <% }else{ %>
+                                <div>
+                                    <form action="/bob/user/acesses" method="post">
+                                        <input type="hidden" name="id" value="<%= user.id %>">
+                                        <input type="hidden" name="check" value="<%= user.check %>">
+                                        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Usuario sem acesso"><i class="fas fa-ban"></i></button>
+                                    </form>
+                                </div>
+                            <% } %>
+                        </th>
+                    </tr>
+                <%});%>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<%- include ('../../partials/footer.ejs');%>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

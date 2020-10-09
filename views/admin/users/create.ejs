@@ -1,0 +1,28 @@
+<%- include ('../../partials/header.ejs');%>
+
+<body>
+    <div class="container">
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>Criação de usuario</h2>
+            </div>
+            <div class="card-body">
+                <form action="/bob/users/new" method="POST">
+                    <input class="form-control" name="name" type="text" placeholder="@Nick"></br>
+                    <input class="form-control" name="email" type="email" placeholder="email@exemplo.com"></br>
+                    <input class="form-control" name="password" type="password" placeholder="********"></br>
+                        <label for="exampleFormControlSelect1">Selecionar patente</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select><br/>
+                    <button class="btn btn-primary btn-block" type="submit">Criar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs');%>

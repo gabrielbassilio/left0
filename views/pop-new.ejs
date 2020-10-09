@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/brands.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/solid.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pop.css">
+    <title>Topicos/<%= slug %>/<%= subs %></title>
+</head>
+<body>
+<%- include ('partials/navbar.ejs'); %>
+<div class="container">
+    <div class="border-pop">
+        <div class="mt-4 d-flex flex-row justify-content-between">
+            <h1>/<%= slug %></h1>
+            <a href="/topic/<%= slug %>/new/<%= subs %>" class="btn btn-primary mt-3" data-toggle="tooltip" data-placement="top" title="Criar novo topico">
+                <i class="fas fa-plus cor-white"></i>
+            </a>
+        </div>
+    </div>
+<div class="pop-box mt-3">
+    <div class="pop-navbar d-flex justify-content-between">
+            <h5>Topicos</h5>
+            <div class="pop-navbar-r">
+                <h5>Views</h5>
+                <h5>Peoples</h5>
+                <h5>Activite</h5>
+            </div>          
+    </div>
+    <hr>
+    <%topics.forEach(topic =>{%>
+    <div class="pop-post">
+        <div class="pop-links">
+            <div class="pop-p-img">
+                <img src="/img/funny-cat.jpg" alt="" srcset="">
+            </div>
+            <div class="pop-info">
+                <a href="/topic/<%= topic.category %>/<%= subs %>/<%= topic.subtitleId %>"><%= topic.title %></a>
+                <h6><%= topic.subtitle %></h6>
+            </div>
+        </div>
+        <div class="pop-info-num">
+            <div class="pop-views">
+                    <h5>15</h5>
+            </div>
+            <div class="pop-peoples">
+                <h5>10</h5>
+            </div>
+            <div class="pop-activite">
+                <h5>20 ago</h5>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <%})%>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/fontawesome/js/all.js"></script>
+<script defer src="/fontawesome/js/solid.js"></script>
+  <script defer src="/fontawesome/js/fontawesome.js"></script>
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+</script>
+</html>

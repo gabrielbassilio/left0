@@ -1,0 +1,405 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #f1f1f1;
+}
+.border-pop{
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin: 10px;
+}
+.border-pop h1{
+    font-size: 20pt;
+    position: relative;
+    left: 15px;
+}
+.border-pop a{
+    margin: 10px;
+    position: relative;
+    right: 15px;
+    bottom: 3px;
+}
+.pop-box{
+    background: #ffffff;
+    border-radius: 40px 40px 0px 0px;
+    -moz-border-radius: 40px 40px 0px 0px;
+    -webkit-border-radius: 40px 40px 0px 0px;
+    width: 100%;
+    min-height: 800px;
+}
+.pop-post{
+    display: flex;
+    flex-direction: row;
+}
+.pop-box .pop-navbar{
+    color: #b9b9b9;
+    position: relative;
+    top: 15px;
+    width: 95%;
+    margin: 0px 20px;
+}
+.pop-box .pop-navbar h5{
+    font-size: 15px;
+}
+.pop-box .pop-navbar .pop-navbar-r{
+    display: flex;
+    flex-direction: row;
+}
+.pop-box .pop-navbar .pop-navbar-r h5{
+    margin:0px 12px;
+}
+.pop-box .pop-links{
+    width: 50%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    margin: 0px 8px;
+    padding: 2px;
+}
+.pop-post .pop-p-img{
+    margin: 7px 0px;
+}
+.pop-post .pop-p-img img{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid royalblue;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0px 2px;
+}
+.pop-post .pop-info{
+    margin: 0px 10px;
+}
+.pop-post .pop-info h4{
+    font-size: 10pt;
+}
+.pop-post .pop-info-num{
+    /*border: 1px solid rebeccapurple;*/
+    width: 55%;
+    margin: 0px 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.pop-post .pop-info-num h5{
+    font-size: 10pt ;
+}
+.pop-box .pop-group-img{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 10px;
+    padding: 5px 10px;
+}
+.pop-box .pop-group-img img{
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    border: 1px solid royalblue;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.pop-box .pop-views{
+    width: 20%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #a0a0a0;
+}
+.pop-post .pop-peoples{
+    width: 20%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    color: #a0a0a0;
+}
+.pop-post .pop-activite{
+    width: 80%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 2px auto;
+    padding: 10px;
+    color: #a0a0a0;
+}
+.pop-post .pop-activite h5{
+    font-size: 10pt;
+}
+.pop-box .pop-views #views{
+   margin: 10%;
+}
+
+@media (min-width:550px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+    }
+    .pop-post .pop-info h4{
+        font-size: 15pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 95%;
+        margin: 16px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 15px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 20px;
+    }
+}
+
+@media (min-width:550px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+    }
+    .pop-post .pop-info h4{
+        font-size: 15pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 95%;
+        margin: 16px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 15px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 35px;
+    }
+
+    .pop-post .pop-peoples{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 2px auto;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite h5{
+        font-size: 10pt;
+    }
+    .pop-box .pop-views #views{
+       margin: 10%;
+    }
+    
+}
+
+@media (min-width:700px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+    }
+    .pop-post .pop-info h4{
+        font-size: 15pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 95%;
+        margin: 16px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 15px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 35px;
+    }
+
+    .pop-post .pop-peoples{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 2px auto;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite h5{
+        font-size: 10pt;
+    }
+    .pop-box .pop-views #views{
+       margin: 10%;
+    }
+    
+}
+@media (min-width:800px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+    }
+    .pop-post .pop-info h4{
+        font-size: 25pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 95%;
+        margin: 10px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 15px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 55px;
+    }
+}
+@media (min-width:900px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+    }
+    .pop-post .pop-info h4{
+        font-size: 15pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 95%;
+        margin: 10px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 15px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 35px;
+    }
+}
+@media (min-width:1200px){
+    .pop-post .pop-info{
+        margin: 0px 20px;
+        width: 89%;
+    }
+    .pop-post .pop-info h4{
+        font-size: 15pt;
+    }
+    .pop-box .pop-navbar{
+        color: #b9b9b9;
+        position: relative;
+        top: 15px;
+        width: 101%;
+        margin: 5px 16px;
+    }
+    .pop-box .pop-navbar h5{
+        font-size: 20px;
+    }
+    .pop-box .pop-navbar .pop-navbar-r{
+        display: flex;
+        flex-direction: row;
+    }
+    .pop-box .pop-navbar .pop-navbar-r h5{
+        margin:0px 70px;
+    }
+
+    .pop-box .pop-views{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-peoples{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 2px auto;
+        padding: 10px;
+        color: #a0a0a0;
+    }
+    .pop-post .pop-activite h5{
+        font-size: 10pt;
+    }
+    .pop-box .pop-views #views{
+       margin: 10%;
+    }
+    .pop-box .pop-links{
+        width: 50%;
+        /*border: 1px solid red;*/
+        display: flex;
+        flex-direction: row;
+        margin: 0px 8px;
+        padding: 2px;
+    }
+}

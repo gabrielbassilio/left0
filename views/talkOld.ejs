@@ -1,0 +1,94 @@
+<%- include ('partials/header.ejs'); %>
+<body>
+<!--nav-->
+<%- include ('partials/navbar.ejs');%>
+<!--nav/-->
+<div class="container">
+    <div class="mx-auto mt-4" style="text-align: center;">
+        <h1>Pop/</h1>
+    </div>
+    <div class="box-container mt-4">
+        <div class="box-post">
+            <div class="box-perf">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+            </div>
+                <h5><a href="/topic/pop/:id/post"> <i class="fas fa-external-link-alt icon-xs"></i></a></h5>
+            <div class="perfmin">
+                <h6>@Marvelfan1</h6>
+                <h6 class="cor-gray"></h6>
+            </div>
+            <div>
+            <hr>
+            <p>
+                gahjsvdhavavsa
+            </p>
+        </div>
+        <hr>
+        <div class="talkbox-img">
+            <iframe src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+    </div> 
+    </div>
+    <div class="box-desc">
+        <h3>Discussion <i class="fab fa-discourse cor-blue"></i></h3>
+        <hr>
+        <!--comment post-->
+        <div class="box-comment">
+            <div class="perfmin-comment">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+                <h6>@Marvelfan1</h6>
+            </div>
+            <div class="comment-box">
+                <form action="/post/save" method="post">
+                    <textarea name="body" class="form-control mt-3" id="exampleFormControlTextarea1" rows="3"placeholder="O que acha disso??"></textarea>
+                    <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+                </form>
+           </div>
+        </div>
+        <% postings.forEach(post => { %>
+        <!--comment-->
+        <div class="box-comment">
+            <div class="perfmin-comment">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+                <h6>@Marvelfan1</h6>
+                <div class="btn-group dropright">
+                    <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span><i class="fas fa-ellipsis-h"></i></span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <form action="/post/delete" method="post">
+                            <input type="hidden" name="postId" value="<%= post.id %>">
+                            <input type="hidden" name="id" value="0">
+                            <button class="dropdown-item" type="submit">Deletar <i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-info">
+                <h6 class="cor-gray"><%= post.createdAt %></h6>
+            </div>
+            <div class="comment-box">
+                <p>
+                   <%= post.body %>
+               </p>
+           </div>
+           <div class="comment-icons">
+               <div>
+                    <form action="/post/up" method="post">
+                        <input type="hidden" name="id" value="<%= post.id %>">
+                        <input type="hidden" name="up" value="<%= post.up %>">
+                        <button class="btn btn-primary"><%= post.up %> <i class="fas fa-level-up-alt"></i></button>
+                    </form>
+               </div>
+           </div>
+        </div>
+        <!--End-->
+        <% }) %>
+    </div> 
+</div>
+</div>
+</div>
+</div>
+</body>
+<%- include ('partials/footer.ejs');%>

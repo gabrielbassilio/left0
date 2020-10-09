@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/brands.css">
+    <link rel="stylesheet" href="/fontawesome/css/css/solid.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Admin painel</title>
+</head>
+<body>
+<%- include ('../partials/bobNavbar.ejs'); %>
+<div class="container">
+<div class="mt-3">
+    
+    <h2 style="text-align: center;">Crescimento da Communidade</h2>
+    <hr>
+
+        <% categories.forEach(category=>{ %>
+            <div>
+                <label for=""><%= category.title %></label>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style=" width: <%= category.subs %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div><br/>
+        <%})%>
+</div>
+</body>
+<%- include ('../partials/footer.ejs'); %>
+</html>

@@ -1,0 +1,100 @@
+<%- include ('partials/header.ejs'); %>
+<body>
+<!--nav-->
+<%- include ('partials/navbar.ejs');%>
+<!--nav/-->
+<div class="container">
+    <div class="mx-auto mt-4" style="text-align: center;">
+        <h1><%= categoryPar %>/<%= topic.title %></h1>
+    </div>
+    <div class="box-container mt-4">
+        <div class="box-post">
+            <div class="box-perf">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+            </div>
+                <h5><a href="/topic/<%= topic.category %>/<%= topic.subtitleId %>"><%= topic.title %> <i class="fas fa-external-link-alt icon-xs"></i></a></h5>
+            <div class="perfmin">
+                <h6>@Marvelfan1</h6>
+                <h6 class="cor-gray"><%= topic.createdAt %></h6>
+            </div>
+            <div>
+            <hr>
+            <p>
+                <%= topic.body %>
+            </p>
+        </div>
+        <hr>
+        <div class="talkbox-img">
+            <iframe src="https://www.youtube.com/embed/<%= topic.videoUrl %>" frameborder="0"></iframe>
+        </div>
+    </div>
+    </div>
+    <div class="box-desc mt-3">
+        <h3>Discussion <i class="fab fa-discourse cor-blue"></i></h3>
+        <hr>
+        <!--comment post-->
+        <div class="box-comment">
+            <div class="perfmin-comment">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+                <h6>@Marvelfan1</h6>
+            </div>
+            <div class="comment-box">
+                <form action="/post/save" method="post">
+                    <textarea name="body" class="form-control mt-3" id="exampleFormControlTextarea1" rows="3"placeholder="O que acha disso??"></textarea>
+                    <input type="hidden" name="subId" value="<%= topic.subtitleId %>">
+                    <input type="hidden" name="category" value="<%= topic.category %>">
+                    <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+                </form>
+           </div>
+        </div>
+    </div>
+    <% posts.forEach(post => { %>
+        <!--comment-->
+        <div class="box-comment">
+            <div class="perfmin-comment">
+                <img src="/img/Marvel-Comics-Logo-Hd-1.jpg" class="perfpic" alt="" srcset="">
+                <h6>@Marvelfan1</h6>
+                <div class="btn-group dropright">
+                    <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span><i class="fas fa-ellipsis-h"></i></span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <form action="/post/delete" method="post">
+                            <input type="hidden" name="postId" value="<%= post.id %>">
+                            <input type="hidden" name="category" value="<%= topic.category %>">
+                            <input type="hidden" name="subId" value="<%= post.subtopicId %>">
+                            <input type="hidden" name="id" value="0">
+                            <input type="hidden" name="slug" value="<%= topic.slug %>">
+                            <button class="dropdown-item" type="submit">Deletar <i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-info">
+                <h6 class="cor-gray"><%= post.createdAt %></h6>
+            </div>
+            <div class="comment-box">
+                <p>
+                   <%= post.body %>
+               </p>
+           </div>
+           <div class="comment-icons">
+               <div>
+                    <form action="/post/up" method="post">
+                        <input type="hidden" name="id" value="<%= post.id %>">
+                        <input type="hidden" name="category" value="<%= topic.category %>">
+                        <input type="hidden" name="subId" value="<%= post.subtopicId %>">
+                        <input type="hidden" name="up" value="<%= post.up %>">
+                        <button class="btn btn-primary" id="up"><%= post.up %> <i class="fas fa-level-up-alt"></i></button>
+                    </form>
+               </div>
+           </div>
+        </div>
+        <!--End-->
+        <% }) %>
+</div>
+</div>
+</div>
+</div>
+</body>
+<%- include ('partials/footer.ejs');%>
