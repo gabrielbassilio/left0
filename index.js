@@ -76,6 +76,6 @@ app.get("/home",userAuth,(req,res)=>{
         res.redirect("/")
     });
 });
-app.listen(8080,()=>{
-    console.log("Rodando na porta: 8080");
+app.listen(3000,()=>{
+    console.log("The server is work!");
 });

@@ -6,12 +6,14 @@ router.post("/post/save",(req,res)=>{
     var body = req.body.body;
     var subId = req.body.subId;
     var category = req.body.category;
+    var user = req.body.user;
     var up = 0;
     if(body != undefined){
         Post.create({
             body:body,
             up:up,
-            subtopicId:subId
+            subtopicId:subId,
+            user:user
         }).then(()=>{
             res.redirect(`/topic/${category}/${subId}`);
         });
@@ -30,7 +32,7 @@ router.get("/topic/pop/:id/post",(req,res)=>{
             id:id
         }
     }).then(postings=>{
-        res.render("./talk",{postings:postings});
+        res.render("./talk",{postings:postings,user:req.session.user});
     });
 });
 

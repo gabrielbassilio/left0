@@ -23,14 +23,11 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Desativado</a>
+        <a class="nav-link" href="#">+</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="nav-item nav-link " href="/user/profile/<%= user.id %>" tabindex="-1" aria-disabled="true"><i class="far fa-user-circle"></i> @<%= user.user %></a>
+      <a class="nav-item nav-link " href="/user/profile/<%= user.user %>" tabindex="-1" aria-disabled="true"><i class="far fa-user-circle"></i> @<%= user.user %></a>
       <a class="nav-item nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
     </form>
   </div>

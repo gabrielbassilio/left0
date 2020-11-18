@@ -18,6 +18,10 @@ const Post = connection.define('posts',{
     subtopicId:{
         type: Sequelize.TEXT,
         allowNull:true
+    },
+    user:{
+        type:Sequelize.TEXT,
+        allowNull:true
     }
 });
 

@@ -66,7 +66,7 @@ router.post("/user/create",(req,res)=>{
                                 user:user.userName
                             }
                         }
-                        res.redirect("/user/first/config");
+                        res.redirect("/home");
                     }else{
                         res.redirect("/");
                     }
@@ -85,10 +85,16 @@ router.get("/user/first/config",(req,res)=>{
 router.post("/user/name/make",(req,res)=>{
     var name = req.body.name;
     var id = req.body.id
-
-    User.update({userName:name},{
-        where:{
-            id:id
+    User.findOne({where:{userName:name}}).then(user=>{
+        if(user != undefined){
+            User.update({userName:name},{
+                where:{
+                    id:id
+                }
+            });
+        }else{
+            res.redirect("/user/first/config");
+            console.log("error!");
         }
     }).then(()=>{
         User.findOne({where:{id:id}}).then(user=>{
@@ -105,7 +111,7 @@ router.post("/user/name/make",(req,res)=>{
                 res.redirect("/");
             }
         });
-    })
+    });
 });
 
 router.get("/user/profile/:id",(req,res)=>{

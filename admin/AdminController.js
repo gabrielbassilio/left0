@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const path = require("path");
 const Adms = require('./Admin');
+const users = require("../user/User")
 const router = express.Router();
 const multerConfig = require('../config/multer');
 const adminAuth = require("../middlewares/adminAuth");
@@ -23,17 +24,17 @@ const adminMaster = require('../middlewares/adminMaster');
 /*const upload = multer({storage});*/
 
 
-router.get("/users", adminAuth,adminMaster,(req,res)=>{
+router.get("/admins", adminAuth,adminMaster,(req,res)=>{
     Adms.findAll().then(users=>{
-        res.render("admin/users/index",{users:users,userId:req.session.team});
+        res.render("admin/admins/index",{users:users,userId:req.session.team});
     });
 });
 
-router.get("/users/create",adminAuth,adminAuth,(req,res)=>{
-    res.render("admin/users/create",{userId:req.session.user});
+router.get("/admin/create",adminAuth,adminAuth,(req,res)=>{
+    res.render("admin/admins/create",{userId:req.session.user});
 });
 
-router.post("/users/new",adminAuth,adminMaster,(req,res)=>{
+router.post("/admin/new",adminAuth,adminMaster,(req,res)=>{
     var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
@@ -49,17 +50,28 @@ router.post("/users/new",adminAuth,adminMaster,(req,res)=>{
                 patents:"master",
                 check:true
             }).then(()=>{
-                res.redirect("/bob/users");
+                res.redirect("/bob/admins");
             }).catch((err)=>{
-                res.redirect("/bob/users");
+                res.redirect("/bob/admins");
             });
         }else{
-            res.redirect("/bob/users/create");
+            res.redirect("/bob/admins/create");
             console.log("Email existente");
         }
     });
 });
+/*---------------------*/
+router.get("/admins", adminAuth,adminMaster,(req,res)=>{
+    Adms.findAll().then(users=>{
+        res.render("admin/admins/index",{users:users,userId:req.session.team});
+    });
+});
 
+router.get("/users",(req,res)=>{
+    users.findAll().then(users=>{
+        res.render("admin/users/users",{users:users,userId:req.session.team});
+    });
+})
 
 router.post("/upload",adminAuth,multer(multerConfig).single("file"),(req,res)=>{
     console.log(req.file);
@@ -163,7 +175,7 @@ router.post("/user/acesses",adminAuth,(req,res)=>{
                 id:id
             }
         }).then(()=>{
-            res.redirect("/bob/users");
+            res.redirect("/bob/admins");
         })
     }else{
         Adms.update({check:false},{
@@ -171,17 +183,17 @@ router.post("/user/acesses",adminAuth,(req,res)=>{
                 id:id
             }
         }).then(()=>{
-            res.redirect("/bob/users");
+            res.redirect("/bob/admins");
         })
     }
 });
 
 router.get("/profile",adminAuth,(req,res)=>{
-    res.render("admin/users/profile",{userId:req.session.team});
+    res.render("admin/admins/profile",{userId:req.session.team});
 });
 
 router.get("/login",(req,res)=>{
-    res.render("admin/users/login");
+    res.render("admin/admins/login");
 });
 
 router.post("/authenticate",(req,res)=>{

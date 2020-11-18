@@ -23,7 +23,7 @@ router.post("/topic/new/save",(req,res)=>{
     var subtitle = req.body.subtitle;
     var category = req.body.category;
     var subs = ++req.body.subs;
-    var userId = req.body.userId;
+    var user = req.body.user;
     if(title,midia,url,body,category,subtitle != undefined){
         Category.findOne({where:{title:category}}).then(categories=>{
             if(categories != undefined){
@@ -38,7 +38,7 @@ router.post("/topic/new/save",(req,res)=>{
                     subtitleId:"topic="+idGeneration(),
                     imagem:"img",
                     video:"video",
-                    by:userId
+                    by:user
                 }).then(()=>{
                     Category.update({subs:subs},{where:{title:category}}).then(()=>{
                         res.redirect(`/topic/${category}/${subs}`);

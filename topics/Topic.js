@@ -46,7 +46,7 @@ const Topic = connection.define('topics',{
     by:{
         type:Sequelize.TEXT,
         allowNull:false
-    }
+    },
 });
 
 //Category.hasMany(Topic);//uma categoria tem muitos topicos
